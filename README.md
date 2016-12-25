@@ -1,4 +1,4 @@
-php的strive扩展
+php的strive扩展，主要实现一些PHP常用的功能函数与一些常用的算法函数
 
 安装过程：
     $php_dir = php安装目录
