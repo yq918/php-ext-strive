@@ -17,10 +17,15 @@ php的strive扩展
 
 实例：
    <?php
+  
      echo "10+40=". addition(10,40)."\r\n";
+
      echo "100-40=". subtraction(100,40)."\r\n";
+
      echo "10*40=". multiplication(10,40)."\r\n";
+
      echo "100/40=". division(100,40)."\r\n";
+
 
 
    1.加法运算
