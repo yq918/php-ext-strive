@@ -10,12 +10,14 @@ php的strive扩展
                extension_dir=/$php_dir/lib/php/extensions/no-debug-non/  这里是扩展目录，根据make install 最后生成的目录为准       
                extension=strive.so
 
-  5. php -m |grep strive 
+  5.   php -m |grep strive 
 
 
 
 
 实例：
+   <?php
+
    1.加法运算
          echo addition(10,40);
 
