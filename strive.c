@@ -59,6 +59,11 @@ ZEND_ARG_INFO(0, b)
 ZEND_END_ARG_INFO()
 
 
+ZEND_BEGIN_ARG_INFO(subtraction_arginfo, 0)
+ZEND_ARG_INFO(0, c)
+ZEND_ARG_INFO(0, d)
+ZEND_END_ARG_INFO()
+
 
 
 
@@ -91,16 +96,52 @@ PHP_FUNCTION(addition)
     	RETURN_LONG(a+b)
 }
 
+/*c -d jianfa */
+PHP_FUNCTION(subtraction)
+{
+        long c,d;
+    	if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC, "ll", &c, &d) == FAILURE) {
+        	return;
+    	}
+
+    	RETURN_LONG(c-d)
+
+}
 
 
 
+ZEND_BEGIN_ARG_INFO(multiplication_arginfo, 0)
+ZEND_ARG_INFO(0, e)
+ZEND_ARG_INFO(0, f)
+ZEND_END_ARG_INFO()
+
+PHP_FUNCTION(multiplication)
+{
+        long e,f;
+        if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC, "ll", &e, &f) == FAILURE) {
+                return;
+        }
+
+        RETURN_LONG(e*f)
+
+}
 
 
+ZEND_BEGIN_ARG_INFO(division_arginfo, 0)
+ZEND_ARG_INFO(0, g)
+ZEND_ARG_INFO(0, h)
+ZEND_END_ARG_INFO()
 
+PHP_FUNCTION(division)
+{
+        long g,h;
+        if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC, "ll", &g, &h) == FAILURE) {
+                return;
+        }
 
+        RETURN_DOUBLE(g/h)
 
-
-
+}
 
 
 
@@ -183,6 +224,9 @@ PHP_MINFO_FUNCTION(strive)
 const zend_function_entry strive_functions[] = {
 	PHP_FE(confirm_strive_compiled,	NULL)		/* For testing, remove later. */
 	PHP_FE(addition,	NULL)		/* For testing, remove later. */
+	PHP_FE(subtraction,	NULL)		/* For testing, remove later. */
+	PHP_FE(multiplication,	NULL)		/* For testing, remove later. */
+	PHP_FE(division,	NULL)		/* For testing, remove later. */
 	PHP_FE_END	/* Must be the last line in strive_functions[] */
 };
 /* }}} */
