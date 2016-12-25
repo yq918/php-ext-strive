@@ -1,0 +1,8 @@
+strive.lo: /zhang/php-7.1.0/ext/strive/strive.c
+	$(LIBTOOL) --mode=compile $(CC) -DZEND_ENABLE_STATIC_TSRMLS_CACHE=1 -I. -I/zhang/php-7.1.0/ext/strive $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /zhang/php-7.1.0/ext/strive/strive.c -o strive.lo 
+$(phplibdir)/strive.la: ./strive.la
+	$(LIBTOOL) --mode=install cp ./strive.la $(phplibdir)
+
+./strive.la: $(shared_objects_strive) $(STRIVE_SHARED_DEPENDENCIES)
+	$(LIBTOOL) --mode=link $(CC) $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS) $(LDFLAGS) -o $@ -export-dynamic -avoid-version -prefer-pic -module -rpath $(phplibdir) $(EXTRA_LDFLAGS) $(shared_objects_strive) $(STRIVE_SHARED_LIBADD)
+
