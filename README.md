@@ -27,6 +27,7 @@ php的strive扩展，主要实现一些PHP常用的功能函数与一些常用�
      echo "100/40=". division(100,40)."\r\n"; 
      
      //集合到一个函数
+     
      echo "90+20=".cal_culator(90,20,'+'); 
      
      echo "90-20=".cal_culator(90,20,'-');
