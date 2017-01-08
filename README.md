@@ -17,6 +17,7 @@ php的strive扩展，主要实现一些PHP常用的功能函数与一些常用�
 
 实例：
    <?php
+   
      //简单的运算
      
      echo "10+40=". addition(10,40)."\r\n";
@@ -55,7 +56,7 @@ php的strive扩展，主要实现一些PHP常用的功能函数与一些常用�
        division(num1,num2)
        
        
-  5.加减乘除运算：
+  5.加减乘除综合运算：
          cal_culator(num1,num2,type); 
          
          
