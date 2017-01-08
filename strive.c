@@ -145,6 +145,46 @@ PHP_FUNCTION(division)
 
 
 
+PHP_FUNCTION(cal_culator)
+{
+    double num1 = 0.0;  
+    double num2 = 0.0; 
+    zend_string *type;  
+
+    #ifndef FAST_ZPP 
+    if (zend_parse_parameters(ZEND_NUM_ARGS(),TSRMLS_CC, "dd|S", &num1, &num2,&type) == FAILURE) {
+        return;
+    }
+    #else
+       ZEND_PARSE_PARAMETERS_START(2, 3)
+          Z_PARAM_DOUBLE(num1)
+          Z_PARAM_DOUBLE(num2)
+          Z_PARAM_OPTIONAL
+          Z_PARAM_STR(type)
+        ZEND_PARSE_PARAMETERS_END();
+   #endif
+
+  switch(ZSTR_VAL(type)[0])
+  {
+        case '+':
+             RETURN_DOUBLE(num1+num2);
+             break;
+        case '-':
+             RETURN_DOUBLE(num1-num2);
+             break;
+        case '*':
+             RETURN_DOUBLE(num1*num2);
+             break;
+        case '/':
+             RETURN_DOUBLE(num1/num2);
+             break;
+         case '%':  
+             RETURN_LONG((int)num1%(int)num2);
+             break;
+  }
+}
+
+
 
 
 
@@ -227,6 +267,7 @@ const zend_function_entry strive_functions[] = {
 	PHP_FE(subtraction,	NULL)		/* For testing, remove later. */
 	PHP_FE(multiplication,	NULL)		/* For testing, remove later. */
 	PHP_FE(division,	NULL)		/* For testing, remove later. */
+	PHP_FE(cal_culator,	NULL)		/* For testing, remove later. */
 	PHP_FE_END	/* Must be the last line in strive_functions[] */
 };
 /* }}} */
